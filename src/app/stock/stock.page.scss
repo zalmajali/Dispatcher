@@ -1,0 +1,468 @@
+/* start header content */
+/* edit from zeyad almajali */
+ion-header {
+	background:#EF874E ;
+	color: white;
+	display: flex;
+	align-items: center;
+	position: relative;
+}
+.ios ion-header .header-background {
+	backdrop-filter: none !important;
+}
+ion-header.menu-content {
+	padding: 12px 0;
+}
+ion-header ion-row {
+	font-size: 30px;
+	align-items: center;
+}
+ion-header ion-row ion-col {
+	padding: 0;
+}
+.logo {
+	text-align: center;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50% , -50%);
+}
+.ios .logo {
+	text-align: center;
+	position: initial;
+	top: 0%;
+	left: 0%;
+	transform: none;
+}
+.menueButtonClass{
+	--padding-start: 8px;
+    --padding-end: 8px;
+    height: 48px;
+}
+.iconMenu{
+	font-size:24px;
+}
+/* end header content */
+/* start content info*/
+ion-content {
+	--background: #F6F6F6;
+}
+.activitiesContent a {
+	text-decoration: none;
+}
+.activitiesList {
+	display: flex;
+	justify-content: space-between;
+}
+.activitiesList ion-list {
+	background: transparent;
+	padding: 5px 0 0;
+	display: flex;
+}
+.activitiesList ion-list ion-item {
+	--background: transparent;
+	--min-height: 0px !important;
+	--border-style: none;
+	--padding-start: 0;
+	--padding-end: 0;
+	font-size: 12px;
+}
+.activitiesList ion-list ion-item ion-label {
+	margin: 0px !important;
+	display: flex;
+	align-items: center;
+}
+.activitiesInfo ion-text h1 {
+	margin-bottom: 0;
+	margin-top: 7px;
+	color: black;
+	font-size: 15px;
+}
+.activitiesInfo {
+	padding-inline-start: 40px;
+}
+/* Start Activities List Content */
+.activitiesTitleInfo {
+	padding-inline-start: 6px;
+}
+.activitiesListContent {
+	padding: 0 10px;
+}
+.activitiesTitleInfo h1 {
+	margin-top: 0;
+	font-size: 15px;
+	margin-bottom: 0;
+}
+.activitiesStatusList ion-text.close {
+	color: rgba(255, 0, 0, 0.68);
+}
+.activitiesStatusList {
+	font-size: 13px;
+	text-align: end;
+}
+.activitiesStatusList .priority {
+	color: #3E485B;
+	display: block;
+}
+/* End Activities List Content */
+/* Start Edit Activities Content Part(One) */
+.activitiesList ion-list {
+	flex-direction: column;
+	width: 100%;
+}
+.activitiesList ion-list ion-item {
+	padding-inline-start: 0px !important;
+	--inner-padding-start: 0px !important;
+	padding-inline-end:0px !important;
+	--inner-padding-end: 0px !important;
+}
+.activitiesList ion-list ion-item ion-icon {
+	font-size: 15px;
+	color: #EF874E;
+}
+.activitiesList ion-list ion-item ion-text {
+	font-size: 11px;
+	padding-left: 5px;
+	color: #3E485B;
+}
+.activitiesListContent {
+	background: white;
+	border-radius: 10px;
+	margin: 0.5rem !important;
+	padding: 7px;
+	box-shadow: 0 0 15px 0 rgb(128 128 128 / 39%);
+	cursor: pointer;
+}
+.activitiesListInfo ion-grid , .activitiesTitleInfo ion-grid {
+	padding: 0px !important;
+}
+.activitiesList ion-list {
+	padding: 0px !important;
+}
+/* Stock Style */
+.stockHeadingInfo {
+	display: flex;
+	align-items: center;
+}
+.stockHeadingContent {
+	display: flex;
+	justify-content: space-between;
+	margin-bottom: 5px;
+}
+.stockHeadingInfo ion-icon {
+	font-size: 29px;
+	color: #EF874E;
+	padding: 0 2px 0 0;
+}
+.stockListContent{
+	background: white;
+	border-radius: 10px;
+	margin: 0.5rem !important;
+	padding: 7px;
+	box-shadow: 0 0 15px 0 rgba(128, 128, 128, 0.39);
+	cursor: pointer;
+}
+.stockHeadingContent ion-grid {
+	padding: 0px ;
+}
+.stockHeadingContent ion-grid ion-row {
+	align-items: center;
+}
+.stockHeadingContent ion-grid ion-row ion-col {
+	padding: 0px;
+}
+.stockHeadingContent ion-grid ion-row ion-col ion-list {
+	padding-top: 0px !important;
+	padding-bottom: 0px !important;
+}
+/* The actual timeline (the vertical ruler) */
+.timeline {
+  position: relative;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* The actual timeline (the vertical ruler) */
+.timeline::after {
+  content: '';
+  position: absolute;
+  width: 6px;
+  background-color: white;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  margin-left: -3px;
+}
+
+/* Container around content */
+.container {
+  padding: 0px;
+  position: relative;
+  background-color: inherit;
+  width: 50%;
+}
+
+/* The circles on the timeline */
+.container::after {
+  content: '';
+  position: absolute;
+  width:15px;
+  height: 15px;
+  right: 0;
+  background-color: white;
+  border: 4px solid #FF9F55;
+  top: 15px;
+  border-radius: 50%;
+  z-index: 1;
+}
+.taskLocationContent {
+  display: flex;
+}
+.taskTimeContent  {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+.taskLocationContent ion-icon {
+  color: #EF874E;
+    font-size: 15px;
+}
+.taskTimeContent ion-icon  {
+  font-size: 15px;
+  color: #2dd36f;
+}
+.timeTextColor {
+  color: #2dd36f;
+}
+.taskTextContent p ,.taskTimeContent p {
+  margin-block-start: 0;
+    margin-block-end: 0;
+    font-size: 11px;
+    padding-left: 5px;
+}
+.statusTaskTitle {
+  display: flex;
+    font-size: 14px;
+    /*background: #EF874E;*/
+    border-radius: 30px;
+    /*padding: 0.2rem 0.5rem;*/
+    padding: 0.2rem 0;
+    max-width: 39%;
+    color: #EF874E;
+}
+.statusTaskTitle p {
+  margin-block-start: 0;
+    margin-block-end: 0;
+    padding-left: 5px;
+    font-size: 12px;
+}
+.taskStatusInfo ion-select {
+  width: 100%;
+  font-size: 11px;
+}
+.taskStatusInfo ion-list ion-item {
+  --padding-start: 0;
+  --inner-padding-end: 0;
+  --min-height: 0;
+}
+.taskStatusInfo ion-list {
+  padding-top: 0;
+  padding-bottom: 0;
+}
+.descriptionInfo p {
+  margin-block-start: 0.5rem;
+    margin-block-end: 0;
+    font-size: 11px;
+}
+.descriptionInfo ion-item {
+  --padding-start: 0;
+  --inner-padding-end: 0;
+  font-size: 11px;
+}
+.signatureImg {
+  text-align: center;
+}
+.signatureImg img {
+  max-width: 70%;
+  margin: 0 auto;
+}
+.entryExitTime ion-list ion-item ion-label {
+  font-size: 11px;
+  margin-block-start: 0.5rem;
+  margin-block-end: 0;
+}
+.entryExitTime ion-list ion-item ion-label.entryTime , .entryExitTime ion-list ion-item ion-label.exitTime {
+  background: #e9e9e9;
+  text-align: center;
+  padding: 0.5rem 0;
+  border-radius: 4px;
+  color: black;
+  border: 1px solid #bbb;
+}
+.entryExitTime ion-list ion-item ion-label ion-icon {
+  padding-right: 5px;
+}
+.entryExitTime ion-list ion-item {
+  --min-height: 27px;
+  --border-style: none;
+  --padding-start: 0px !important;
+  --padding-end: 0px !important;
+  padding-inline-start: 0px !important;
+  padding-inline-end: 0px !important;
+}
+.entryTimeTitle , .exitTimeTitle{
+  display: flex !important;
+  align-items: center;
+}
+
+
+/* Popup Forgot Password */
+ion-modal {
+  --height: 100%;
+  /*--border-radius: 16px;
+  --box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);*/
+}
+ion-modal::part(backdrop) {
+  background: rgba(209, 213, 219);
+  opacity: 1;
+}
+ion-modal ion-toolbar {
+  --background: #EF874E;
+  --color: white;
+}
+.btnSubmit {
+  --border-style: none !important;
+}
+.listForgotPassword {
+  padding: 9px 0 !important;
+  margin: 0 0.5rem;
+  background: transparent;
+  --background: transparent;
+}
+.listForgotPassword ion-item {
+  background: transparent;
+  --background: transparent;
+  padding-inline-start: 0 !important;
+padding-inline-end: 0 !important;
+--padding-start: 0px !important;
+--padding-end: 0px !important;
+}
+.btnSubmit {
+  padding: 0.5rem 0 0;
+}
+.btnSubmit ion-button {
+  --background: #EF874E;
+  --color: white;
+}
+.saveBtn ion-button {
+  width: 100%;
+background: #EF874E;
+--background: #EF874E;
+border-radius: 15px;
+}
+.statusTaskContent .descriptionInfo ion-textarea {
+  background: #d7d7d745;
+  border-radius: 5px;
+  font-size: 11px;
+}
+.completeSignature {
+  display: none;
+}
+.completeSignature ion-button {
+  --background: #EF874E;
+  --ion-color-base: #EF874E !important;
+  color: white;
+  font-size: 14px;
+}
+.stockParts {
+  margin-top: 1rem;
+}
+.stockParts .descriptionInfo ion-list ion-item {
+  --min-height: 34px !important;
+}
+.stockParts .descriptionInfo {
+  overflow-y: scroll;
+  height: 216px;
+}
+
+.newPartsContent ion-item ion-checkbox {
+  margin-inline: 0px 5px !important;
+  --background:#ffffff !important;
+  --border-color:#000000 !important;
+}
+.newPartsContent ion-item ion-label {
+  font-size: 13px;
+  color:#000000
+}
+
+/* PartsTab Style */
+.partsTab {
+  margin-top: 1rem;
+}
+.partsTab ion-segment ion-segment-button {
+  font-size: 9px;
+  color: black;
+}
+
+.partsTab ion-segment ion-segment-button {
+  --color-checked: #ef874e;
+  --background-checked: #f6f6f6;
+  border-radius: 12px 12px 0 0;
+}
+.newPartsContent {
+  width: 100%;
+}
+.partsTab ion-slides {
+  margin: 1rem 0;
+}
+.partsTab ion-slides ion-slide {
+  justify-content: flex-start;
+}
+.signatureCanvas canvas {
+  background: #b4b4b487;
+  max-width: 90%;
+  margin: 0 auto;
+}
+.saveBtn ion-button {
+	--ion-color-base: #EF874E !important;
+	 border-radius: 58px !important;
+    --border-radius: 10px;
+    height: 43px;
+    text-transform: none;
+	width:95%
+}
+.signature ion-button {
+	--ion-color-base: #EF874E !important;
+	 border-radius: 58px !important;
+    --border-radius: 10px;
+    height: 43px;
+    text-transform: none;
+	margin:10px;
+	width:150px
+}
+ion-list,ion-item{
+	--background:#ffffff !important;
+	background-color:#ffffff !important;
+	--ion-background-color:#ffffff !important;
+}
+/*start add and edit by zeyad almajali*/
+.emptyPage{
+	text-align:center;
+	margin-top:30%;
+}
+.emptyTextLarg{
+	padding: 5px 0px 5px 0px;
+    color: #EF874E;
+    font-size: 16px;
+	font-weight:bold
+}
+ion-select {
+	--placeholder-color:#b6b6b5;
+	--placeholder-opacity:1;
+	--padding-top:14px;
+	color:#000000;
+	width:100%
+}
+.taskStatusInfo{
+	padding:5px 15px 5px 15px;
+}

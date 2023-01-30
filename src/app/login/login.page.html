@@ -1,0 +1,35 @@
+<ion-header [translucent]="true">
+    <div class="menu-header" id="main-content">
+        <ion-buttons slot="start" (click)="functionOpenMenue()">
+      		<ion-button class="menueButtonClass"><ion-icon name="menu-outline" class="iconMenu"></ion-icon></ion-button>
+        </ion-buttons>
+    </div>
+    <div class="logo">
+        <ion-title>{{loginTitle}}</ion-title>
+    </div>
+</ion-header>
+<ion-content>
+<!-- Login Form -->
+<div class="img-login">
+  <ion-icon name="person-circle-outline"></ion-icon>
+</div>
+<div class="login-form">
+    <form style="display: contents;" (ngSubmit)="checkUser()">
+        <ion-item lines="full">
+            <ion-label position="floating">{{loginUserName}}</ion-label>
+            <ion-input type="text" [(ngModel)]="userName" [ngModelOptions]="{standalone: true}" (ionInput)="checkUserName($event.target.value)"></ion-input>
+        </ion-item>
+        <div class="errorNoData" *ngIf='showMessageUser == 1'>{{loginUserNameMsg}}</div>
+        <ion-item lines="full">
+            <ion-label position="floating">{{loginUserPassword}}</ion-label>
+            <ion-input [type]="showPassword ? 'text' : 'password'" [(ngModel)]="password" [ngModelOptions]="{standalone: true}" (ionInput)="checkPassword($event.target.value)"></ion-input><ion-icon [name]="showPassword ? 'eye' : 'eye-off'" class="eye" (click)="changeInputType()"></ion-icon>
+        </ion-item>
+        <div class="errorNoData" *ngIf='showMessagePass == 1'>{{loginPasswordMsg}}</div>
+        <div class="login-btn">
+        	<ion-button color="danger" expand="block" (click)="checkUser()">{{loginButton}}</ion-button>
+        </div>
+        <button style="visibility:hidden" id="submit" ion-button type="submit" ></button>
+    </form>
+            <div class="forgotPassword" (click)="functionForGotPassword()">{{forgotPasswordTitle}}?</div>
+</div>
+</ion-content>

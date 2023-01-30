@@ -1,0 +1,64 @@
+ion-header {
+	background:#EF874E ;
+	color: white;
+	display: flex;
+	align-items: center;
+	position: relative;
+}
+.ios ion-header .header-background {
+	backdrop-filter: none !important;
+}
+ion-header.menu-content {
+	padding: 12px 0;
+}
+ion-header ion-row {
+	font-size: 30px;
+	align-items: center;
+}
+ion-header ion-row ion-col {
+	padding: 0;
+}
+.logo {
+	text-align: center;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50% , -50%);
+}
+.ios .logo {
+	text-align: center;
+	position: initial;
+	top: 0%;
+	left: 0%;
+	transform: none;
+}
+.menueButtonClass{
+	--padding-start: 8px;
+    --padding-end: 8px;
+    height: 48px;
+}
+.iconMenu{
+	font-size:24px;
+}
+ion-content {
+	--background: #F6F6F6;
+}
+.img-privacypolicy {
+	text-align: center;
+	padding-top: 1rem;
+	margin: 0.5rem !important;
+}
+.img-privacypolicy ion-icon {
+	font-size: 5rem;
+	color: #EF874E;
+}
+.privacypolicy-data {
+	margin: 1rem 0.5rem 0.5rem 0.5rem !important;
+	font-size:14px;
+	color:#000000;
+	line-height:30px
+}
+.img-login ion-icon {
+	font-size: 5rem;
+	color: #EF874E;
+}

@@ -1,0 +1,7 @@
+{
+  "name": "NJ-Dispatcher",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "angular"
+}

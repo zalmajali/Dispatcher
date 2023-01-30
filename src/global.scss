@@ -1,0 +1,192 @@
+/*
+ * App Global CSS
+ * ----------------------------------------------------------------------------
+ * Put style rules here that you want to apply globally. These styles are for
+ * the entire app and not just one component. Additionally, this file can be
+ * used as an entry point to import other CSS/Sass files to be included in the
+ * output CSS.
+ * For more information on global stylesheets, visit the documentation:
+ * https://ionicframework.com/docs/layout/global-stylesheets
+ */
+
+/* Core CSS required for Ionic components to work properly */
+@import "~@ionic/angular/css/core.css";
+
+/* Basic CSS for apps built with Ionic */
+@import "~@ionic/angular/css/normalize.css";
+@import "~@ionic/angular/css/structure.css";
+@import "~@ionic/angular/css/typography.css";
+@import '~@ionic/angular/css/display.css';
+
+/* Optional CSS utils that can be commented out */
+@import "~@ionic/angular/css/padding.css";
+@import "~@ionic/angular/css/float-elements.css";
+@import "~@ionic/angular/css/text-alignment.css";
+@import "~@ionic/angular/css/text-transformation.css";
+@import "~@ionic/angular/css/flex-utils.css";
+/* Style Home Page Global */
+ion-searchbar{
+	--placeholder-color:#7f7f7f !important;
+	--placeholder-opacity:1 !important;
+	background: #ffffff !important;
+	border-radius: 6px !important;
+  padding-inline-start: 0 !important;
+  padding-inline-end: 0 !important;
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+  position: relative;
+
+  ion-button {
+    position: absolute;
+    top: -3px;
+    right: 0;
+    z-index: 1;
+    --box-shadow: none;
+  }
+  .searchbar-input-container{
+      input.searchbar-input{
+        padding-top: 0 !important;
+        padding-bottom: 0 !important;
+        font-size: 11px;
+        padding-inline-start: 26px !important;
+        padding-inline-end: 0 !important;
+        border-radius: 6px;
+        --box-shadow:none !important;
+		background: #ffffff !important;
+      }
+      .searchbar-search-icon {
+        left: 7px;
+        top: 7px;
+        width: 15px;
+        height: 15px;
+        color: #EF874E;
+      }
+  }
+}
+
+
+.ios ion-searchbar{
+  padding-inline-start: 0 !important;
+  padding-inline-end: 0 !important;
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+  position: relative;
+
+  ion-button {
+    position: absolute;
+    top: 15px;
+    right: 0;
+    z-index: 1;
+    --box-shadow: none;
+  }
+  .searchbar-input-container{
+      input.searchbar-input{
+        padding-top: 0 !important;
+        padding-bottom: 0 !important;
+        font-size: 11px;
+        padding-inline-start: 26px !important;
+        padding-inline-end: 0 !important;
+        border-radius: 6px;
+        background: white;
+        --box-shadow:none !important;
+		background: #ffffff !important;
+      }
+      .searchbar-search-icon {
+        left: 7px;
+        top: 7px;
+        width: 15px;
+        height: 15px;
+        color: #EF874E;
+      }
+  }
+}
+.ios ion-menu-button {
+  color: white;
+}
+
+/* Login Popup Style */
+.login-forgetPassword {
+.ion-padding {
+  --padding-top: var(--ion-padding, 5px);
+  --padding-bottom: var(--ion-padding, 20px);
+  --overflow: hidden;
+}
+}
+.ios ion-header {
+  .header-background {
+    backdrop-filter: none !important;
+  }
+}
+
+/* Stock Page Style */
+.newPartsContent {
+  ion-item {
+    ion-checkbox {
+      margin: 5px 0 5px 0;
+    }
+  }
+}
+/*start add and edit by zeyad almajali*/
+.toastStyle{
+	--background: linear-gradient(-90deg, #EF874E, #da5d18) !important;
+	--color: #ffffff;
+	--end:0px;
+	--start:0px;
+	--border-radius:8px;
+	--width:100%;
+	direction:ltr;
+	--max-width:100%;
+	--box-shadow:none;
+	font-size: 13px !important;
+	--height:40px;
+}
+.loadingStyle{
+	--spinner-color: #ffffff !important;
+}
+.infinite-loading-text{
+	font-size:13px !important;
+	color:var(--ion-color-searchButton) !important;
+}
+.loading-wrapper{
+	border-radius:5px !important;
+	background:#EF874E !important;
+}
+.my-custom-class {
+  --background: #222;
+  --spinner-color: #fff;
+  color: #fff;
+}
+.alertBac{
+	--background: linear-gradient(-90deg, #EF874E, #da5d18) !important;
+}
+.alert-message.sc-ion-alert-ios {
+  color: #ffffff;
+  font-size:16px;
+  
+}
+.alert-button.sc-ion-alert-ios{
+	color: #ffffff;
+	font-weight:normal !important;
+	font-size: 17px;
+    padding-bottom: 10px;
+}
+.modalOpenCss{
+	width:100% !important;
+	--width:100% !important;
+	--height:100% !important;
+}
+ion-datetime{
+	font-size:30px !important;
+}
+.select-alert .alert-radio-group{
+	background:#ffffff !important
+}
+.select-alert .alert-head{
+	background:#ffffff !important
+}
+.select-alert .alert-button-group{
+	background:#ffffff !important
+}
+.select-alert .alert-radio-label{
+	color:#000000 !important
+}

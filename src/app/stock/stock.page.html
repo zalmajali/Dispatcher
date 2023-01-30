@@ -1,0 +1,156 @@
+<ion-header [translucent]="true">
+    <div class="menu-header" id="main-content">
+        <ion-buttons slot="start" (click)="functionOpenMenue()">
+      		<ion-button class="menueButtonClass"><ion-icon name="menu-outline" class="iconMenu"></ion-icon></ion-button>
+        </ion-buttons>
+    </div>
+    <div class="logo">
+        <ion-title>
+            {{stock}}
+        </ion-title>
+    </div>
+</ion-header>
+<ion-content [fullscreen]="true">
+  <div class="activitiesListContent">
+    <!-- Start Stock Section -->
+<div class="stockPageContent">
+    <div class="stockHeadingContent">
+          <div class="stockHeadingInfo">
+          <ion-icon name="cube-outline"></ion-icon>
+          <div class="activitiesTitleInfo">
+            <ion-text><h1>{{stockName}}</h1></ion-text>
+          </div>
+        </div>
+    </div>
+  	<div class="activitiesListInfo">
+        <ion-grid>
+            <ion-row>
+                <ion-col size="12">
+                    <div class="activitiesList">
+                        <ion-list>
+                            <ion-item>
+                                <div class="activities-Location">
+                                    <ion-icon class="location" name="location-outline"></ion-icon>
+                                    <ion-text>{{stockAddress}}</ion-text>
+                                </div>
+                            </ion-item>
+                            <ion-item>
+                                <div class="activities-CallInfo" *ngIf="stockPhone" (click)="functionCallNumber(stockPhone)">
+                                    <ion-icon name="call-outline"></ion-icon>
+                                    <ion-text>{{stockPhone}}</ion-text>
+                                </div>
+                            </ion-item>
+                        </ion-list>
+                    </div>
+                </ion-col>
+            </ion-row>
+        </ion-grid>
+    </div>
+</div>
+<!-- End Stock Section-->
+<!-- Stock New Parts Section -->
+<div class="partsTab">
+    <ion-segment (ionChange)="segmentChanged($event)" [(ngModel)]="segment">
+        <ion-segment-button value="0">{{newParts}}</ion-segment-button>
+        <ion-segment-button value="1">{{returnParts}}</ion-segment-button>
+        <ion-segment-button value="2">{{technicalParts}}</ion-segment-button>
+    </ion-segment>
+    <ion-slides #slides (ionSlideDidChange)="slideChanged()" scrollbar="false">
+        <ion-slide>
+            <div class="newPartsContent" *ngIf="countStockNewPartsArray==1">
+                <div>
+                    <ion-item lines="none" *ngFor="let items of returnStockNewPartsArray;let i = index">
+                        <ion-checkbox (ionChange)="functionStockNewPartsArray($event,items.id)" slot="start" ></ion-checkbox>
+                        <ion-label>{{items.name}}</ion-label>
+                    </ion-item>
+                    <div class="saveBtn" (click)="saveNewParts()">
+                        <ion-button>{{save}}</ion-button>
+                    </div>
+            	</div>
+            </div>
+             <div class="newPartsContent" *ngIf="countStockNewPartsArray==0">
+                <div class="emptyPage">
+                    <div>
+                        <img src="../../assets/images/noData.png" style="width:5rem">
+                    </div>
+                    <div class="emptyTextLarg">
+                        {{ticketActionEmpty}}
+                    </div>
+                </div>
+            </div>
+        </ion-slide>
+        <ion-slide>
+            <div class="newPartsContent">
+                <ion-item lines="none" *ngFor="let items of returnStockPartsArray;let i = index">
+                    <ion-checkbox (ionChange)="functionStockPartsArray($event,items.id,i)" slot="start" ></ion-checkbox>
+                        <ion-label>{{items.name}}</ion-label>
+                </ion-item>
+                <div class="signatureCanvas">
+                    <canvas #canvasOne (touchstart)="startDrawing($event)" (touchmove)="moved($event)"></canvas>
+                    <div class="signature">
+                        <ion-button size="small" (click)="clearPad(1)">{{clear}}</ion-button>
+                        <ion-button size="small" color="secondary" (click)="savePad(1)">{{save}}</ion-button>
+                    </div>
+                </div>
+                <div class="checkbox-NA-PLOS">
+                    <ion-list>
+                        <ion-item lines="none">
+                            <ion-checkbox slot="start" (ionChange)="functionStockNorATicket($event)"></ion-checkbox>
+                            <ion-label>N/A</ion-label>
+                        </ion-item>
+                        <ion-item lines="none">
+                            <ion-checkbox slot="start" (ionChange)="functionStockPlosTicket($event)"></ion-checkbox>
+                            <ion-label>PLOS</ion-label>
+                        </ion-item>
+                    </ion-list>
+                </div>
+                <div class="saveBtn" (click)="saveStockParts()">
+                	<ion-button>{{save}}</ion-button>
+                </div>
+            </div>
+        </ion-slide>
+        <ion-slide>
+            <div class="newPartsContent">
+                <ion-item lines="none" *ngFor="let items of returnStockTechnicalPartsArray;let i = index">
+                    <ion-checkbox (ionChange)="functionStockTechnicalPartsArray($event,items.id,i)" slot="start" disabled="{{items.disabled}}"></ion-checkbox>
+                    <ion-label>{{items.name}}</ion-label>
+                </ion-item>
+                <div class="signatureCanvas">
+                    <canvas #canvasTow (touchstart)="startDrawing($event)" (touchmove)="moved($event)"></canvas>
+                    <div class="signature">
+                        <ion-button size="small" (click)="clearPad(2)">{{clear}}</ion-button>
+                        <ion-button size="small" color="secondary" (click)="savePad(2)">{{save}}</ion-button>
+                    </div>
+                </div>
+                <div class="taskStatusInfo">
+                    <ion-list class="selectTechnical">
+                        <ion-item>
+                            <ion-select  placeholder="{{selectTechnical}}...." cancelText="{{close}}" okText="{{confirm}}" required (ionChange)="selectTechnicalName($event.target.value)" >
+                                <ion-select-option *ngFor="let itemsTechnical of returnTechnicalNameArray;let i = index" value="{{itemsTechnical.id}}">{{itemsTechnical.name}}</ion-select-option>
+                            </ion-select>
+                        </ion-item>
+                    </ion-list>
+                </div>
+                <div class="checkbox-NA-PLOS">
+                    <ion-list>
+                        <ion-item lines="none">
+                            <ion-checkbox slot="start" (ionChange)="functionTechnicalNorATicket($event)"></ion-checkbox>
+                            <ion-label>N/A</ion-label>
+                        </ion-item>
+                        <ion-item lines="none">
+                            <ion-checkbox slot="start" (ionChange)="functionTechnicalPlosTicket($event)"></ion-checkbox>
+                            <ion-label>PLOS</ion-label>
+                        </ion-item>
+                    </ion-list>
+                </div>
+                <div class="saveBtn" (click)="saveTechnicalParts()">
+                	<ion-button>{{save}}</ion-button>
+                </div>
+            </div>
+        </ion-slide>
+    </ion-slides>
+  </div>
+  <!-- Save Btn -->
+</div>
+</ion-content>
+

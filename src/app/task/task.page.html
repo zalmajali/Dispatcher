@@ -1,0 +1,230 @@
+<ion-header [translucent]="true">
+    <div class="menu-header" id="main-content">
+        <ion-buttons slot="start" (click)="functionBackHome()">
+      		<ion-button class="menueButtonClass"><ion-icon name="close-outline" class="iconMenu"></ion-icon></ion-button>
+        </ion-buttons>
+    </div>
+    <div class="logo">
+        <ion-title>
+            {{taskTitle}}
+        </ion-title>
+    </div>
+</ion-header>
+<ion-content [fullscreen]="true">
+     <ion-popover trigger="dateTicketEta">
+        <ng-template>
+        	<ion-datetime [(ngModel)]="dateTicketEta" [ngModelOptions]="{standalone: true}" presentation="time" [preferWheel]="true"></ion-datetime>
+        </ng-template>
+    </ion-popover>
+  <div class="activitiesListContent">
+  <ion-grid>
+    <ion-row>
+      <ion-col size="1" id="activitiesLocation">
+        <div class="activitiesLocation">
+          <div class="imgLocation">
+            <img src="../../assets/images/location.png"/>
+            <div class="textLocation">
+              <ion-text><h1>A</h1></ion-text>
+            </div>
+          </div>
+        </div>
+      </ion-col>
+      <ion-col size="8" id="activitiesTitleInfo">
+        <div class="activitiesTitleInfo">
+          <ion-text><h1>{{ticketCustmerName}}</h1></ion-text>
+          <ion-text><span >{{ticketCallId}}</span></ion-text>
+        </div>
+      </ion-col>
+      <ion-col size="3">
+        <div class="activitiesStatusList">
+            <ion-icon name="chatbubble-ellipses" (click)='ticketAction()' class="iconNoteDownload"></ion-icon><ion-icon name="cloud-download" (click)='ticketattachment()' class="iconNoteDownload"></ion-icon>
+        </div>
+    </ion-col>
+    </ion-row>
+    <div class="taskInfo">
+        <ion-row>
+          <ion-col size="12">
+            <div class="taskLocationContent">
+              <ion-icon name="location-outline"></ion-icon>
+              <div class="taskTextContent">
+                <ion-text><p>{{ticketCustmerPlace}}</p></ion-text>
+                <ion-text><p>{{ticketCustmerStreet}}</p></ion-text>
+              </div>
+            </div>
+          </ion-col>
+        </ion-row>
+    </div>
+  </ion-grid>
+    <!-- Description Task Content -->
+    <div class="statusTaskContent">
+        <ion-grid>
+            <ion-row>
+                <ion-col size="12" id="activitiesLocation">
+                    <div class="statusTaskTitle">
+                        <ion-icon name="arrow-redo-outline"></ion-icon>
+                        <ion-text><p>{{description}}</p></ion-text>
+                    </div>
+                </ion-col>
+                <ion-col size="12">
+                    <div class="descriptionInfo">
+                        <ion-text>
+                            <p [innerHTML]="ticketDescription" ></p>
+                        </ion-text>
+                	</div>
+                </ion-col>
+            </ion-row>
+        </ion-grid>
+    </div>
+    <form style="display: contents;" (ngSubmit)="updateStatusTicket()">
+    <!-- Part Stock Content -->
+        <div class="statusTaskContent" *ngIf="ticketPartsCount==1">
+            <ion-grid>
+                <ion-row>
+                    <ion-col size="12" id="activitiesLocation">
+                        <div class="statusTaskTitle">
+                            <ion-icon name="arrow-redo-outline"></ion-icon>
+                            <ion-text><p>{{parts}}</p></ion-text>
+                        </div>
+                    </ion-col>
+                    <ion-col size="12">
+                        <div class="descriptionInfo">
+                            <ion-list>
+                                <ion-item *ngFor="let items of ticketPartsArray;let i = index">
+                                    <ion-label>{{items.name}}</ion-label>
+                                    <ion-select multiple="false" cancelText="{{close}}" (ionChange)="selectTicketsPartStatus($event.target.value,items.id)" okText="{{confirm}}">
+                                        <ion-select-option *ngFor="let itemsPart of returnTicketsPartStatusArray;let i = index" value="{{itemsPart.id}}">{{itemsPart.name}}</ion-select-option>
+                                    </ion-select>
+                                </ion-item>
+                            </ion-list>
+                        </div>
+                    </ion-col>
+                </ion-row>
+            </ion-grid>
+        </div>
+        <!-- Note Task Content -->
+        <div class="statusTaskContent">
+            <ion-grid>
+                <ion-row>
+                    <ion-col size="12" id="activitiesLocation">
+                        <div class="statusTaskTitle">
+                            <ion-icon name="arrow-redo-outline"></ion-icon>
+                            <ion-text><p>{{note}}</p></ion-text>
+                        </div>
+                    </ion-col>
+                    <ion-col size="12">
+                        <div class="descriptionInfo">
+                            <ion-textarea [(ngModel)]="ticketNote" [ngModelOptions]="{standalone: true}" (ionInput)="checkTicketNote($event.target.value)" clearOnEdit="true" rows="4" placeholder="{{enterNote}}..."></ion-textarea>
+                        </div>
+                    </ion-col>
+                </ion-row>
+            </ion-grid>
+        </div>
+        
+        <!-- Appointment Task Content -->
+        <div class="statusTaskContent">
+            <ion-grid>
+                <ion-row>
+                    <ion-col size="12" id="activitiesLocation">
+                        <div class="statusTaskTitle">
+                            <ion-icon name="arrow-redo-outline"></ion-icon>
+                            <ion-text><p>{{appointment}}</p></ion-text>
+                        </div>
+                    </ion-col>
+                    <ion-col size="12">
+                        <div class="entryExitTime">
+                            <ion-list>
+                                <ion-item>
+                                    <ion-grid  class="gridClassVal">
+                                        <ion-row>
+                                            <ion-col size="6" class="colClassVal colClass">
+                                                <ion-label class="exitTimeTitle"><ion-icon name="time-outline"></ion-icon>{{eta}}</ion-label>
+                                            </ion-col>
+                                            <ion-col size="6"  class="colClassVal">
+                                                <div class="minutesTask">
+                                                    <ion-list>
+                                                        <ion-item>
+                                    						<ion-input [(ngModel)]="ticketEta" id="dateTicketEta" value="{{ dateTicketEta | date: 'HH:mm' }}" [ngModelOptions]="{standalone: true}" (ionChange)="checkTicketEta($event.target.value)" autocorrect="on" type="text" placeholder="{{enterMinutes}}..." class="entryTimeTitle timeEnter"></ion-input>
+                                                        </ion-item>
+                                                    </ion-list>
+                                                </div>
+                                            </ion-col>
+                                        </ion-row>
+                                    </ion-grid>
+                                </ion-item>
+                                <ion-item>
+                                    <ion-grid  class="gridClassVal">
+                                        <ion-row>
+                                            <ion-col size="6" class="colClassVal colClass">
+                                                <ion-label class="exitTimeTitle"><ion-icon name="time-outline"></ion-icon>{{beginTime}}</ion-label>
+                                            </ion-col>
+                                            <ion-col size="6"  class="colClassVal">
+                                                <div class="minutesTask">
+                                                    <ion-list>
+                                                        <ion-item>
+                                                            <ion-input [(ngModel)]="ticketBeginTime" readonly='true' [ngModelOptions]="{standalone: true}" type="text"  placeholder="{{enterTime}}..." class="entryTimeTitle timeEnter"></ion-input>
+                                                        </ion-item>
+                                                    </ion-list>
+                                                </div>
+                                            </ion-col>
+                                        </ion-row>
+                                    </ion-grid>
+                                </ion-item>
+                                <ion-item>
+                                    <ion-grid class="gridClassVal">
+                                        <ion-row>
+                                            <ion-col size="6" class="colClassVal colClass">
+                                                <ion-label class="exitTimeTitle"><ion-icon name="time-outline"></ion-icon>{{finishTime}}</ion-label>
+                                            </ion-col>
+                                            <ion-col size="6"  class="colClassVal">
+                                                <div class="minutesTask">
+                                                    <ion-list>
+                                                        <ion-item>
+                                                            <ion-input [(ngModel)]="ticketFinishTime" readonly='true' [ngModelOptions]="{standalone: true}" type="text"  placeholder="{{enterTime}}..." class="entryTimeTitle timeEnter"></ion-input>
+                                                        </ion-item>
+                                                    </ion-list>
+                                                </div>
+                                            </ion-col>
+                                        </ion-row>
+                                    </ion-grid>
+                                </ion-item>
+                            </ion-list>
+                        </div>
+                    </ion-col>
+                </ion-row>
+            </ion-grid>
+        </div>
+        <!-- Status Task Content -->
+        <div class="statusTaskContent">
+            <ion-grid>
+                <ion-row>
+                    <ion-col size="12" id="activitiesLocation">
+                        <div class="statusTaskTitle">
+                            <ion-icon name="arrow-redo-outline"></ion-icon>
+                            <ion-text><p>{{status}}</p></ion-text>
+                        </div>
+                    </ion-col>
+                    <ion-col size="12">
+                        <div class="taskStatusInfo">
+                            <ion-list>
+                                <ion-item>
+                                    <ion-select value="{{ticketsStatusSelectVal}}"  placeholder="{{selectStatus}}...." cancelText="{{close}}" okText="{{confirm}}" required (ionChange)="selectTicketsStatus($event.target.value)" >
+                                        <ion-select-option *ngFor="let itemsStatus of returnTicketStatusArray;let i = index" value="{{itemsStatus.id}}">{{itemsStatus.name}}</ion-select-option>
+                                    </ion-select>
+                                </ion-item>
+                            </ion-list>
+                        </div>
+                    </ion-col>
+                </ion-row>
+            </ion-grid>
+        </div>
+        <div *ngIf="showCompleteButton==1">
+        	<ion-button class="complet" color="danger" (click)="completeTicket()">{{complete}}</ion-button>
+        </div>
+        <!-- Save Btn -->
+         <div class="task-btn">
+        	<ion-button color="danger" expand="block" (click)="updateStatusTicket()">{{save}}</ion-button>
+        </div>
+    	<button style="visibility:hidden" id="submit" ion-button type="submit" ></button>
+    </form>
+ </div>
+</ion-content>

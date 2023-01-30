@@ -1,0 +1,488 @@
+/* start header content */
+/* edit from zeyad almajali */
+ion-header {
+	background:#EF874E ;
+	color: white;
+	display: flex;
+	align-items: center;
+	position: relative;
+}
+.ios ion-header .header-background {
+	backdrop-filter: none !important;
+}
+ion-header.menu-content {
+	padding: 12px 0;
+}
+ion-header ion-row {
+	font-size: 30px;
+	align-items: center;
+}
+ion-header ion-row ion-col {
+	padding: 0;
+}
+.logo {
+	text-align: center;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50% , -50%);
+}
+.ios .logo {
+	text-align: center;
+	position: initial;
+	top: 0%;
+	left: 0%;
+	transform: none;
+}
+.menueButtonClass{
+	--padding-start: 8px;
+    --padding-end: 8px;
+    height: 48px;
+}
+.iconMenu{
+	font-size:24px;
+}
+/* end header content */
+/* start content info*/
+ion-content {
+	--background: #F6F6F6;
+}
+.activitiesContent a {
+	text-decoration: none;
+}
+.activitiesList {
+	display: flex;
+	justify-content: space-between;
+}
+.activitiesList ion-list {
+	background: transparent;
+	padding: 5px 0 0;
+	display: flex;
+}
+.activitiesList ion-list ion-item {
+	--background: transparent;
+	--min-height: 0px !important;
+	--border-style: none;
+	--padding-start: 0;
+	--padding-end: 0;
+	font-size: 12px;
+}
+.activitiesList ion-list ion-item ion-label {
+	margin: 0px !important;
+	display: flex;
+	align-items: center;
+}
+.activitiesInfo ion-text h1 {
+	margin-bottom: 0;
+	margin-top: 7px;
+	color: black;
+	font-size: 15px;
+}
+.activitiesInfo {
+	padding-inline-start: 40px;
+}
+.activitiesList ion-list ion-item ion-label > ion-icon {
+	margin-right:5px;
+	font-size: 20px;
+}
+.activitiesList ion-list ion-item ion-label > ion-icon.location {
+	color: green;
+}
+.activitiesList ion-list ion-item ion-label > ion-icon.close{
+	background: red;
+	border-radius: 50%;
+	color: red;
+}
+.activitiesContent ion-grid {
+	background: white;
+	border-radius: 10px;
+	margin: 1rem 0;
+	padding: 7px;
+	box-shadow: 0 0 15px 0 #80808063;
+}
+.activitiesContent {
+	padding: 0 10px;
+}
+.timing ion-text , .totalTiming ion-text{
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+.timing ion-text h2 , .totalTiming ion-text h2 {
+	margin-top: 0;
+	font-size: 12px;
+	margin-bottom: 0;
+}
+.activities {
+	font-size: 25px;
+	text-align: center;
+	background: #3E485B;
+	color: white;
+	border-radius: 20%;
+}
+.timingContent {
+	background: #3E485B;
+	color: white;
+	border-radius: 10px;
+}
+.activitiesList ion-text.close {
+	background: rgb(255 0 0 / 68%);
+	padding: 4px 20px;
+	border-radius: 15px;
+	color: white;
+	margin: 0.2rem 0;
+	font-size: 15px;
+}
+.activitiesList ion-text.active {
+	background: rgb(33 150 9 / 61%);
+	padding: 4px 20px;
+	border-radius: 15px;
+	color: white;
+	margin: 0.2rem 0;
+	font-size: 15px;
+}
+.priority {
+	display: flex;
+	align-items: center;
+	color: black;
+}
+.priority ion-text {
+	color: #3E485B;
+	padding-left: 3px;
+}
+.priority ion-icon {
+	color: #EF874E;
+}
+.companyLocationInfo {
+	font-size: 15px;
+}
+.companyLocationInfo .companyContent ion-icon , .companyLocationInfo .locationContent ion-icon {
+	background: #3E485B;
+	padding: 7px;
+	border-radius: 30px;
+	color: #EF874E;
+}
+.companyContent , .locationContent {
+	display: flex;
+	align-items: center;
+	margin: 0.3rem 0;
+}
+.companyLocationInfo .companyContent ion-text , .companyLocationInfo .locationContent ion-text {
+	color: #3E485B;
+	padding-left:10px;
+}
+.personCallContent {
+	font-size: 15px;
+}
+.personCallContent .personContent ion-icon ,.personCallContent .callContent ion-icon {
+	background: #3E485B;
+	padding: 7px;
+	border-radius: 30px;
+	color: #EF874E;
+}
+.personContent , .callContent {
+	display: flex;
+	align-items: center;
+	margin: 0.3rem 0;
+}
+.personCallContent .personContent ion-text ,.personCallContent .callContent ion-text {
+	color: #3E485B;
+	padding-left:10px;
+}
+.personCallContent ion-col {
+	padding: 0;
+}
+.mapKmContent ion-text h1 , .mapTimeContent ion-text h1 {
+	margin-top: 0;
+	margin-bottom: 0;
+	font-size: 10px;
+	text-align: center;
+}
+button.gm-control-active.gm-fullscreen-control {
+display: none !important;
+}
+/* Start Activities List Content */
+.activitiesTitleInfo {
+	padding-inline-start: 6px;
+}
+.activitiesListContent {
+	padding: 0 10px;
+}
+.activitiesTitleInfo h1 {
+	margin-top: 0;
+	font-size: 15px;
+	margin-bottom: 0;
+}
+.activitiesStatusList ion-text.close {
+	color: rgba(255, 0, 0, 0.68);
+}
+.activitiesStatusList {
+	font-size: 13px;
+	text-align: end;
+}
+.activitiesStatusList .priority {
+	color: #3E485B;
+	display: block;
+}
+.imgLocation {
+	position: relative;
+}
+.textLocation {
+	position: absolute;
+	top: 39%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}
+.textLocation h1 {
+	font-size: 20px;
+	color: white;
+	margin-top: 0px;
+	margin-bottom: 4px;
+}
+.activitiesListContent .activitiesInfo {
+	padding-inline-start: 0px !important;
+	margin-top: 0.4rem;
+}
+.activitiesInfo ion-list ion-item {
+	--border-style: none;
+	--min-height: 19px;
+	--padding-start: 0;
+	--inner-padding-end: 0;
+}
+.activitiesInfo ion-list {
+	padding-top: 0px !important;
+	padding-bottom: 0px !important;
+}
+.activitiesInfo ion-list ion-item ion-icon {
+	color: #EF874E;
+	font-size: 15px;
+}
+.activitiesInfo ion-list ion-item ion-text {
+	color: #3E485B;
+	padding-left:5px;
+}
+.activitiesInfo .personContent,.activitiesInfo .callContent {
+	display: flex;
+	align-items: center;
+	margin: 0;
+}
+.personInfoItem ion-col , .timingInfo ion-col  {
+	padding-inline-start: 0;
+	padding: 0 8px 0 0;
+}
+.timingInfo {
+	width: 100%;
+}
+.timingInfo .timing ion-text h2 ,.timingInfo .totalTiming ion-text h2  {
+	font-size: 11px;
+}
+.timingInfo .totalTiming {
+	padding: 0px 0.8rem;
+	display: flex;
+}
+.timingInfo .timing {
+	display: flex;
+}
+.timingInfo ion-col {
+	display: flex;
+	align-items: center;
+}
+.activitiesLocation {
+	max-width: 100%;
+	margin: 0 auto;
+}
+#activitiesLocation {
+	padding-right:0;
+	padding-left: 0;
+	padding-top: 0;
+	padding-bottom: 0;
+}
+#activitiesTitleInfo {
+	display: flex;
+	align-items: center;
+	padding: 0;
+}
+.activitiesListContent .activitiesInfo ion-text {
+	font-size: 11px;
+}
+/* End Activities List Content */
+/* Start Edit Activities Content Part(One) */
+.activitiesList ion-list {
+	flex-direction: column;
+	width: 100%;
+}
+.activitiesList ion-list ion-item {
+	padding-inline-start: 0px !important;
+	--inner-padding-start: 0px !important;
+	padding-inline-end:0px !important;
+	--inner-padding-end: 0px !important;
+}
+
+.activitiesList ion-list ion-item ion-icon {
+	font-size: 15px;
+	color: #EF874E;
+}
+.activitiesList ion-list ion-item ion-text {
+	font-size: 11px;
+	padding-left: 5px;
+	color: #3E485B;
+}
+.activities-ComapnyName , .activities-Location {
+	display: flex;
+	align-items: center;
+	width: 100%;
+	padding-bottom: 3px;
+}
+.activities-PersonInfo , .timingInfo {
+	display: flex;
+	align-items: center;
+	width: 100%;
+}
+.activities-PersonName , .activities-CallInfo ,.timing , .totalTiming{
+	display: flex;
+	align-items: center;
+	width: 100%;
+	padding-bottom: 3px;
+}
+.timingInfo .totalTiming {
+	padding: 0px !important;
+}
+.activitiesListContent {
+	background: white;
+	border-radius: 10px;
+	margin: 0.5rem !important;
+	padding: 7px;
+	box-shadow: 0 0 15px 0 rgb(128 128 128 / 39%);
+	cursor: pointer;
+}
+.activitiesListInfo ion-grid , .activitiesTitleInfo ion-grid {
+	padding: 0px !important;
+}
+.activitiesList ion-list {
+	padding: 0px !important;
+}
+.moveDragDrop ion-list ion-item {
+	--border-style: none;
+	padding-inline-start: 0px !important;
+	--inner-padding-start: 0px !important;
+	padding-inline-end:0px !important;
+	--inner-padding-end: 0px !important;
+}
+ion-reorder ion-icon {
+	padding: 0.5rem;
+	color: #ef874e;
+	font-size: 16px;
+	border-radius: 50%;
+	background: #e9e9e952;
+}
+.reorder-enabled ion-reorder {
+	margin-inline-start: 0 !important;
+}
+ion-menu {
+	height: 100vh;
+}
+/* Stock Style */
+.stockHeadingInfo {
+	display: flex;
+	align-items: center;
+}
+.stockHeadingContent {
+	display: flex;
+	justify-content: space-between;
+	margin-bottom: 5px;
+}
+.stockHeadingInfo ion-icon {
+	font-size: 29px;
+	color: #EF874E;
+	padding: 0 2px 0 0;
+}
+.stockListContent{
+	background: white;
+	border-radius: 10px;
+	margin: 0.5rem !important;
+	padding: 7px;
+	box-shadow: 0 0 15px 0 rgba(128, 128, 128, 0.39);
+	cursor: pointer;
+}
+.stockHeadingContent ion-grid {
+	padding: 0px ;
+}
+.stockHeadingContent ion-grid ion-row {
+	align-items: center;
+}
+.stockHeadingContent ion-grid ion-row ion-col {
+	padding: 0px;
+}
+.stockHeadingContent ion-grid ion-row ion-col ion-list {
+	padding-top: 0px !important;
+	padding-bottom: 0px !important;
+}
+.activitiesListInfo ion-col {
+	padding-top: 0px !important;
+	padding-bottom: 0px !important;
+}
+.saveStatusBtn ion-button{
+	width: 100%;
+	background: #EF874E;
+	--background: #EF874E;
+	border-radius: 15px;
+	text-transform:none;
+	height: 35px;
+}
+.saveStatusBtn ion-list ion-item {
+	width: 100%;
+	background: #EF874E;
+	--background: #EF874E;
+	border-radius: 15px;
+}
+.saveStatusComplete ion-select {
+	padding: 0;
+	width: 100%;
+	font-size: 12px;
+	color: white;
+}
+.saveStatusComplete ion-list ion-item {
+	width: 100%;
+	--min-height: 30px;
+	background: #EF874E;
+	--background: #EF874E;
+	border-radius: 4px;
+}
+/*change color of icon on focus*/
+/*start add and edit by zeyad almajali*/
+ion-select.sortingSelect::part(icon) {
+	color:#EF874E !important;
+	opacity:0.55 !important;
+}
+ion-select.statusSelect::part(icon) {
+	color:#ffffff !important;
+	opacity:0.55 !important;
+}
+ion-list,ion-item{
+	--background:#ffffff;
+	background-color:#ffffff;
+	--ion-background-color:#ffffff;
+}
+.iconNoteDownload{
+	font-size:23px;
+	color:#EF874E;
+	padding:0px 3px 0px 3px;
+}
+.labelText{
+	color:#000000 !important;
+}
+.ticketStatus{
+	background: #EF874E;
+    height: 31px;
+    text-align: center;
+    padding-top: 7px;
+    font-size: 14px;
+    border-radius: 6px;
+	color:#ffffff;
+}
+.etaBeginFineshTime{
+	color:#1ca6da
+}
+.etaTime{
+	font-size:10px !important;
+}

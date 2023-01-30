@@ -1,0 +1,61 @@
+@import url(../home/home.page.scss);
+
+ion-header {
+  background: #EF874E;
+  color: white;
+}
+ion-content {
+  --background: #F6F6F6;
+}
+.img-profile {
+  text-align: center;
+  padding-top: 1rem;
+  margin: 0.5rem !important;
+}
+.img-profile ion-icon {
+  font-size: 5rem;
+color: #EF874E;
+}
+.setting-content {
+  margin: 0.5rem !important;
+}
+.setting-content ion-list {
+  background: transparent !important;
+}
+.setting-content ion-list ion-item {
+  background: transparent !important;
+  --background: transparent !important;
+  padding-inline-start: 0px !important;
+  padding-inline-end: 0px !important;
+  --padding-start: 0px !important;
+  --padding-end: 0px !important;
+  --inner-padding-end:0px !important;
+
+}
+.setting-content ion-icon {
+  font-size: 19px;
+  color:gray;
+}
+/*change color of icon on focus*/
+/*start add and edit by zeyad almajali*/
+ion-label{
+	color:#000000 !important;
+}
+ion-toggle {
+  --background: gray !important;
+  --background-checked: gray !important;
+  --handle-background: #ffffff !important;
+  --handle-background-checked: #EF874E !important;
+}
+ion-segment{
+	position:absolute;
+	right:0px;
+	bottom:5px
+}
+ion-segment-button{
+	--color-checked:#000000;
+	--color:#000000;
+	min-width: 50px;
+	--border-width:0px;
+	--indicator-color: #ffffff;
+}

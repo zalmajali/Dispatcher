@@ -1,0 +1,44 @@
+ion-content {
+	--background: #F6F6F6;
+}
+ion-header {
+	background:#EF874E ;
+	color: white;
+	display: flex;
+	align-items: center;
+	position: relative;
+}
+.ios ion-header .header-background {
+	backdrop-filter: none !important;
+}
+ion-header.menu-content {
+	padding: 11px 0;
+}
+.menuContent-sidebar ion-list {
+	background: transparent;
+	margin: 0.5rem !important;
+}
+.menuContent-sidebar ion-list ion-item {
+	background: transparent;
+	--background: transparent;
+	padding-inline-start: 0;
+	padding-inline-end: 0;
+	--padding-start: 0px !important;
+}
+.menuContent-sidebar ion-list ion-item ion-label {
+	padding-left: 10px;
+	cursor: pointer;
+}
+ion-header ion-row {
+	font-size: 30px;
+	align-items: center;
+}
+ion-header ion-row ion-col {
+	padding: 0;
+}
+ion-label{
+	color:#000000 !important;
+}
+ion-icon {
+	color: #EF874E;
+}

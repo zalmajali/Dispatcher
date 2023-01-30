@@ -1,0 +1,36 @@
+<ion-header [translucent]="true">
+    <div class="menu-header" id="main-content">
+        <ion-buttons slot="start" (click)="closeModel()">
+      		<ion-button class="menueButtonClass"><ion-icon name="close-outline" class="iconMenu"></ion-icon></ion-button>
+        </ion-buttons>
+    </div>
+    <div class="logo">
+        <ion-title>
+            {{ticketAttachment}}
+        </ion-title>
+    </div>
+</ion-header>
+<ion-content>
+ 	<div *ngIf="allTicketAttachment==1">
+        <ion-grid>
+            <ion-row>
+                <ion-col size="3" id="activitiesLocation" *ngFor="let items of returnTicketsArray;let i = index">
+                    <div class="activitiesLocation">
+                        <div class="imgLocation">
+                          <img src="../../assets/images/files.png" style="width:5rem">
+                        </div>
+                        <div class="download"><img src="../../assets/images/open.png" style="width:25px"></div>
+                    </div>
+                </ion-col>
+            </ion-row>
+        </ion-grid>
+    </div>
+ 	<div class="emptyPage" *ngIf="allTicketAttachment==0">
+    	<div>
+        	<img src="../../assets/images/noData.png" style="width:5rem">
+        </div>
+        <div class="emptyTextLarg">
+        	{{ticketAttachmentEmpty}}
+        </div>
+    </div>
+</ion-content>

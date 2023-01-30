@@ -1,0 +1,106 @@
+<ion-header [translucent]="true">
+    <div class="menu-header" id="main-content">
+        <ion-buttons slot="start" (click)="functionOpenMenue()">
+      		<ion-button class="menueButtonClass"><ion-icon name="menu-outline" class="iconMenu"></ion-icon></ion-button>
+        </ion-buttons>
+    </div>
+    <div class="logo">
+        <ion-title>
+            {{ticketsTitle}}
+        </ion-title>
+    </div>
+</ion-header>
+<ion-content [fullscreen]="true">
+<!-- Start Edit Activities Content -->
+<div *ngFor="let items of returnTicketsArray;let i = index">
+    <!-- Start Stock Section -->
+    <div class="activitiesListContent">
+      <div class="activitiesHeadingInfo">
+        <ion-grid>
+          <ion-row>
+            <ion-col size="1" id="activitiesLocation">
+              <div class="activitiesLocation">
+                <div class="imgLocation">
+                  <img src="../../assets/images/location.png"/>
+                  <div class="textLocation">
+                    <ion-text><h1>{{items.label}}</h1></ion-text>
+                  </div>
+                </div>
+              </div>
+            </ion-col>
+            <ion-col size="8" id="activitiesTitleInfo">
+              <div class="activitiesTitleInfo">
+                <ion-text class="labelText"><h1>{{items.customerName}}</h1></ion-text>
+                <ion-text class="labelText"><span>{{items.callId}}</span></ion-text>
+                <ion-text *ngIf="items.etaTime!=0"><h1 class="etaTime">{{eta}}:{{items.etaTime}}</h1></ion-text>
+              </div>
+            </ion-col>
+            <ion-col size="3">
+                <div class="activitiesStatusList">
+                    <ion-icon name="chatbubble-ellipses" (click)='ticketAction(items.mapId)' class="iconNoteDownload"></ion-icon><ion-icon name="cloud-download" (click)='ticketattachment(items.mapId)' class="iconNoteDownload"></ion-icon>
+                </div>
+            </ion-col>
+          </ion-row>
+          </ion-grid>
+      </div>
+      <div class="activitiesListInfo">
+        <ion-grid>
+          <ion-row>
+            <ion-col size="9">
+              <div class="activitiesList">
+                <ion-list>
+                  <ion-item>
+                    <div class="activities-ComapnyName">
+                      <ion-icon name="home-outline"></ion-icon>
+                      <ion-text>{{items.customerName}}</ion-text>
+                    </div>
+                  </ion-item>
+                  <ion-item>
+                    <div class="activities-Location">
+                    <ion-icon class="location" name="location-outline"></ion-icon>
+                    <ion-text>{{items.customerAddress}}</ion-text>
+                  </div>
+                  </ion-item>
+                  <ion-item>
+                    <div class="activities-PersonInfo">
+                        <div class="activities-PersonName">
+                          <ion-icon name="person-circle-outline"></ion-icon>
+                          <ion-text>{{items.customerName}}</ion-text>
+                        </div>
+                        <div class="activities-CallInfo" (click)="functionCallNumber(items.custmerPhone)" *ngIf="items.custmerPhone">
+                          <ion-icon name="call-outline"></ion-icon>
+                          <ion-text>{{items.custmerPhone}}</ion-text>
+                        </div>
+                  </div>
+                  </ion-item>
+                  <ion-item>
+                    <div class="timingInfo">
+                          <div class="timing" *ngIf="items.startWork || items.endWork">
+                            <ion-icon name="time-outline"></ion-icon>
+                            <ion-text><h2 class="etaBeginFineshTime">{{begin}}: </h2><h2 style="padding-right:3px">{{items.startWork}}</h2>-<h2 class="etaBeginFineshTime" style="padding-left:3px">{{finish}}: </h2><h2>{{items.endWork}}</h2></ion-text>
+                          </div>
+                    </div>
+                  </ion-item>
+                </ion-list>
+              </div>
+              </ion-col>
+              <ion-col size="3">
+                <div class="moveDragDrop">
+                  <ion-list>
+                    <ion-item>
+                  <ion-reorder slot="end"><ion-icon name="move-outline"></ion-icon></ion-reorder>
+                </ion-item>
+              </ion-list>
+                </div>
+              </ion-col>
+              <ion-col size="12">
+                <div class="ticketStatus">
+                	{{items.statusName}}
+                </div>
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+      </div>
+    </div>
+</div>
+</ion-content>

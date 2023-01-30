@@ -1,0 +1,222 @@
+<ion-header [translucent]="true">
+    <div class="menu-header" id="main-content">
+        <ion-buttons slot="start" (click)="functionOpenMenue()">
+      		<ion-button class="menueButtonClass"><ion-icon name="menu-outline" class="iconMenu"></ion-icon></ion-button>
+        </ion-buttons>
+    </div>
+    <div class="logo">
+        <ion-title>
+            {{ticketsTitle}}
+        </ion-title>
+    </div>
+</ion-header>
+<ion-content [fullscreen]="true">
+<div id="map" style="height:35%;"></div>
+
+<div id="mapContent">
+  <div class="mapKmTimeContent">
+    <ion-text><h1>{{totalKm}} :  35.00km </h1></ion-text>
+    <ion-text><h1>{{totalTime}} : 1 Hours</h1></ion-text>
+  </div>
+</div>
+<!-- Start Postion And Sort Section-->
+<div class="startPostion-Sort">
+    <ion-grid>
+        <ion-row>
+            <ion-col size="8">
+                <div class="startPostion">
+                    <ion-searchbar placeholder="{{searchPlaceholder}}" class="custom" (ionInput)="checkSearchInput($event.target.value)">
+                        <ion-button (click)="displaySearchInput()"><ion-icon name="locate-outline"></ion-icon></ion-button>
+                    </ion-searchbar>
+                </div>
+            </ion-col>
+            <ion-col size="4">
+            <div class="sortSelect">
+                <ion-list>
+                    <ion-item>
+                        <ion-icon name="filter-outline"></ion-icon>
+                        <ion-select interface="popover" (ionChange)="selectOrderByValues($event.target.value)" placeholder="{{sorting}}" class="sortingSelect">
+                            <ion-select-option value="distance">{{distance}}</ion-select-option>
+                            <ion-select-option value="time">{{time}}</ion-select-option>
+                        </ion-select>
+                    </ion-item>
+                </ion-list>
+            </div>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
+</div>
+<!-- Start Edit Activities Content -->
+<ion-reorder-group (ionItemReorder)="titcketOrderNew($event)" disabled="false">
+<div *ngFor="let items of returnTicketsArray;let i = index">
+<!-- Start home Section -->
+    <div class="stockListContent" *ngIf='items.mapType==1' (click)="stockTickets()">
+        <div class="stockHeadingContent">
+            <div class="stockHeadingInfo">
+                <ion-icon name="cube-outline"></ion-icon>
+                <div class="activitiesTitleInfo">
+                    <ion-text class="labelText">{{items.customerName}}</ion-text>
+                </div>
+            </div>
+            <div class="moveDragDrop">
+                <ion-reorder slot="end"><ion-icon name="move-outline"></ion-icon></ion-reorder>
+            </div>
+        </div>
+        <div class="activitiesListInfo">
+            <div class="activitiesList">
+                <ion-list>
+                    <ion-item>
+                        <div class="activities-Location">
+                            <ion-icon class="location" name="location-outline"></ion-icon>
+                            <ion-text>{{items.customerAddress}}</ion-text>
+                        </div>
+                    </ion-item>
+                    <ion-item *ngIf="items.custmerPhone">
+                        <div class="activities-CallInfo">
+                            <ion-icon name="call-outline"></ion-icon>
+                            <ion-text>{{items.custmerPhone}}</ion-text>
+                        </div>
+                    </ion-item>
+                </ion-list>
+            </div>
+        </div>
+    </div>
+    <!-- Start Stock Section -->
+    <div class="stockListContent" *ngIf='items.mapType==2 && items.mapType==1' (click)="stockTickets()">
+        <div class="stockHeadingContent">
+            <div class="stockHeadingInfo">
+                <ion-icon name="cube-outline"></ion-icon>
+                <div class="activitiesTitleInfo">
+                    <ion-text class="labelText">{{items.customerName}}</ion-text>
+                </div>
+            </div>
+            <div class="moveDragDrop">
+                <ion-reorder slot="end"><ion-icon name="move-outline"></ion-icon></ion-reorder>
+            </div>
+        </div>
+        <div class="activitiesListInfo">
+            <div class="activitiesList">
+                <ion-list>
+                    <ion-item>
+                        <div class="activities-Location">
+                            <ion-icon class="location" name="location-outline"></ion-icon>
+                            <ion-text>{{items.customerAddress}}</ion-text>
+                        </div>
+                    </ion-item>
+                    <ion-item *ngIf="items.custmerPhone">
+                        <div class="activities-CallInfo">
+                            <ion-icon name="call-outline"></ion-icon>
+                            <ion-text>{{items.custmerPhone}}</ion-text>
+                        </div>
+                    </ion-item>
+                </ion-list>
+            </div>
+        </div>
+    </div>
+    <!-- End Stock Section-->
+    <div class="activitiesListContent" *ngIf='items.mapType!=1 && items.mapType!=2'>
+      <div class="activitiesHeadingInfo">
+        <ion-grid>
+          <ion-row>
+            <ion-col size="1" id="activitiesLocation" (click)="startTickets(items.mapId)">
+              <div class="activitiesLocation">
+                <div class="imgLocation">
+                  <img src="../../assets/images/location.png"/>
+                  <div class="textLocation">
+                    <ion-text><h1>{{items.label}}</h1></ion-text>
+                  </div>
+                </div>
+              </div>
+            </ion-col>
+            <ion-col size="8" id="activitiesTitleInfo" (click)="startTickets(items.mapId)">
+              <div class="activitiesTitleInfo">
+                <ion-text class="labelText"><h1>{{items.customerName}}</h1></ion-text>
+                <ion-text class="labelText"><span>{{items.callId}}</span></ion-text>
+                <ion-text *ngIf="items.etaTime!=0"><h1 class="etaTime">{{eta}}:{{items.etaTime}}</h1></ion-text>
+              </div>
+            </ion-col>
+            <ion-col size="3">
+                <div class="activitiesStatusList">
+                    <ion-icon name="chatbubble-ellipses" (click)='ticketAction(items.mapId)' class="iconNoteDownload"></ion-icon><ion-icon name="cloud-download" (click)='ticketattachment(items.mapId)' class="iconNoteDownload"></ion-icon>
+                </div>
+            </ion-col>
+          </ion-row>
+          </ion-grid>
+      </div>
+      <div class="activitiesListInfo">
+        <ion-grid>
+          <ion-row>
+            <ion-col size="9">
+              <div class="activitiesList">
+                <ion-list>
+                  <ion-item (click)="startTickets(items.mapId)">
+                    <div class="activities-ComapnyName">
+                      <ion-icon name="home-outline"></ion-icon>
+                      <ion-text>{{items.customerName}}</ion-text>
+                    </div>
+                  </ion-item>
+                  <ion-item (click)="startTickets(items.mapId)">
+                    <div class="activities-Location">
+                    <ion-icon class="location" name="location-outline"></ion-icon>
+                    <ion-text>{{items.customerAddress}}</ion-text>
+                  </div>
+                  </ion-item>
+                  <ion-item>
+                    <div class="activities-PersonInfo">
+                        <div class="activities-PersonName" (click)="startTickets(items.mapId)">
+                          <ion-icon name="person-circle-outline"></ion-icon>
+                          <ion-text>{{items.customerName}}</ion-text>
+                        </div>
+                        <div class="activities-CallInfo" (click)="functionCallNumber(items.custmerPhone)" *ngIf="items.custmerPhone">
+                          <ion-icon name="call-outline"></ion-icon>
+                          <ion-text>{{items.custmerPhone}}</ion-text>
+                        </div>
+                  </div>
+                  </ion-item>
+                  <ion-item>
+                    <div class="timingInfo">
+                          <div class="timing" *ngIf="items.startWork || items.endWork">
+                            <ion-icon name="time-outline"></ion-icon>
+                            <ion-text><h2 class="etaBeginFineshTime">{{begin}}: </h2><h2 style="padding-right:3px">{{items.startWork}}</h2>-<h2 class="etaBeginFineshTime" style="padding-left:3px">{{finish}}: </h2><h2>{{items.endWork}}</h2></ion-text>
+                          </div>
+                    </div>
+                  </ion-item>
+                </ion-list>
+              </div>
+              </ion-col>
+              <ion-col size="3">
+                <div class="moveDragDrop">
+                  <ion-list>
+                    <ion-item>
+                  <ion-reorder slot="end"><ion-icon name="move-outline"></ion-icon></ion-reorder>
+                </ion-item>
+              </ion-list>
+                </div>
+              </ion-col>
+              <ion-col size="12">
+                <div class="saveStatusBtn" *ngIf="items.ticketItatusId == 2" (click)="changeStatuseTicket(3,items.mapId)">
+                	<ion-button size="small">{{tacke}}</ion-button>
+                </div>
+                <div class="saveStatusBtn" *ngIf="items.ticketItatusId == 3" (click)="changeStatuseTicket(4,items.mapId)">
+                	<ion-button size="small">{{begin}}</ion-button>
+                </div>
+                <div class="saveStatusComplete" *ngIf="items.ticketItatusId == 4">
+                  <ion-list>
+                    <ion-item>
+                      <ion-select cancelText="{{close}}" okText="{{confirm}}" class="statusSelect" (ionChange)="changeStatuseTicket($event.target.value,items.map_id)" placeholder="{{selectStatus}}....">
+                        <ion-select-option *ngFor="let itemsStatus of returnTicketStatusArray;let i = index" value="{{itemsStatus.id}}">{{itemsStatus.name}}</ion-select-option>
+                      </ion-select>
+                    </ion-item>
+                  </ion-list>
+                </div>
+                <div class="ticketStatus" *ngIf="items.ticketItatusId > 4">
+                	{{items.statusName}}
+                </div>
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+      </div>
+    </div>
+</div>
+</ion-reorder-group>
+</ion-content>

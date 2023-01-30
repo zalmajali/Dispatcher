@@ -1,0 +1,32 @@
+<script src="ticketaction.component.ts"></script>
+<ion-header [translucent]="true">
+    <div class="menu-header" id="main-content">
+        <ion-buttons slot="start" (click)="closeModel()">
+      		<ion-button class="menueButtonClass"><ion-icon name="close-outline" class="iconMenu"></ion-icon></ion-button>
+        </ion-buttons>
+    </div>
+    <div class="logo">
+        <ion-title>
+            {{ticketAction}}
+        </ion-title>
+    </div>
+</ion-header>
+<ion-content>
+ 	<div *ngIf="allTicketNote==1">
+    	<div *ngFor="let items of returnTicketsArray;let i = index">
+             <div class="ticketActionContent">
+                <div class="ticketAction">{{items.actionName}}</div>
+                <div class="ticketNote">{{items.note}}</div>
+                <div class="ticketData">{{items.createdAt}}</div>
+            </div>
+        </div>
+    </div>
+ 	<div class="emptyPage" *ngIf="allTicketNote==0">
+    	<div>
+        	<img src="../../assets/images/noData.png" style="width:5rem">
+        </div>
+        <div class="emptyTextLarg">
+        	{{ticketActionEmpty}}
+        </div>
+    </div>
+</ion-content>
